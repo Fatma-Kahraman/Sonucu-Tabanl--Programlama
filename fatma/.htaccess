@@ -1,0 +1,22 @@
+RewriteEngine on
+
+#Seo url oluşturma
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+#Yeniden İsimlendirme
+
+#RewriteRule ^haber$ character-details.php [NC,L]
+
+#Seo URL Linklendirme
+
+#Slug yapısına göre çekme
+
+RewriteRule ^character-([0-9a-zA-Z-_]+) character-details.php?characters_slug=$1 [L,QSA]
+RewriteRule ^kurumsal-([0-9a-zA-Z-_]+) abouts.php?abouts_slug=$1 [L,QSA]
+
+#ID'ye göre çekme
+
+#RewriteRule ^characterlar-([0-9a-zA-Z-_]) character-details.php?characters_id=$1 [L,QSA]
